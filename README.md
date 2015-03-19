@@ -1,5 +1,5 @@
 # Docker-inspectIT-JBoss
-JBoss Dockerfile including inspectIT
+This dockerfile provides a JBoss application server including the APM solution inspectIT (www.inspectit.eu). 
 
 (work in process)
 
