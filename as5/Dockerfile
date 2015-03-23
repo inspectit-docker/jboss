@@ -14,8 +14,8 @@ ENV INSPECTIT_CONFIG_HOME /opt/agent/config
 RUN wget ftp://ftp.novatec-gmbh.de/inspectit/releases/RELEASE.${INSPECTIT_VERSION}/inspectit-agent-sun1.5.zip \
 && unzip inspectit-agent-sun1.5.zip \
 && rm -f inspectit-agent-sun1.5.zip \
-&& sed -i '9i\'"export INSPECTIT_JAVA_OPTS=\"-javaagent:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -Dinspectit.config=${INSPECTIT_CONFIG_HOME}\"" /jboss-5.1.0.GA/bin/run.sh \ 
-&& sed -i '10i\'"export JAVA_OPTS=\"\${INSPECTIT_JAVA_OPTS} \${JAVA_OPTS}\"" /jboss-5.1.0.GA/bin/run.sh
+&& sed -i '$ a\'"export INSPECTIT_JAVA_OPTS=\"-javaagent:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -Dinspectit.config=${INSPECTIT_CONFIG_HOME}\"" /jboss-5.1.0.GA/bin/run.conf \ 
+&& sed -i '$ a\'"export JAVA_OPTS=\"\${INSPECTIT_JAVA_OPTS} \${JAVA_OPTS}\"" /jboss-5.1.0.GA/bin/run.conf
 
 # define volume
 VOLUME /opt/agent/config
