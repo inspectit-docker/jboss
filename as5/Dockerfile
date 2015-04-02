@@ -7,7 +7,7 @@ WORKDIR /opt
 #set insepctit env
 ENV INSPECTIT_VERSION 1.6.2.65
 ENV INSPECTIT_AGENT_HOME /opt/agent
-ENV INSPECTIT_CONFIG_HOME /opt/agent/config
+ENV INSPECTIT_CONFIG_HOME /opt/agent/active-config
 
 # get inspectit binary
 # set inspectit jvm options
@@ -17,8 +17,11 @@ RUN wget ftp://ftp.novatec-gmbh.de/inspectit/releases/RELEASE.${INSPECTIT_VERSIO
 && sed -i '$ a\'"export INSPECTIT_JAVA_OPTS=\"-javaagent:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -Dinspectit.config=${INSPECTIT_CONFIG_HOME}\"" /jboss-5.1.0.GA/bin/run.conf \ 
 && sed -i '$ a\'"export JAVA_OPTS=\"\${INSPECTIT_JAVA_OPTS} \${JAVA_OPTS}\"" /jboss-5.1.0.GA/bin/run.conf
 
-# define volume
-VOLUME /opt/agent/config
+#copy start script
+COPY run-with-inspectit.sh /run-with-inspectit.sh
+
+#define VOLUME for active agent config
+VOLUME ["/opt/agent/active-config"]
 
 # define default command
-CMD ["/run.sh"]
+CMD ["/run-with-inspectit.sh"]
