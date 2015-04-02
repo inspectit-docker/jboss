@@ -7,7 +7,7 @@ WORKDIR /opt
 #set insepctit env
 ENV INSPECTIT_VERSION 1.6.2.65
 ENV INSPECTIT_AGENT_HOME /opt/agent
-ENV INSPECTIT_CONFIG_HOME /opt/agent/config
+ENV INSPECTIT_CONFIG_HOME /opt/agent/active-config
 
 # update, install unzip, get inspectit binary
 # set inspectit jvm options
@@ -23,8 +23,11 @@ RUN apt-get update \
 && sed -i '$ a\'"INSPECTIT_JAVA_OPTS=\"-Xbootclasspath/p:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -javaagent:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -Dinspectit.config=${INSPECTIT_CONFIG_HOME}\"" /jboss-as-7.1.1.Final/bin/standalone.conf \
 && sed -i '$ a\'"JAVA_OPTS=\"\${INSPECTIT_JAVA_OPTS} \${JAVA_OPTS}\"" /jboss-as-7.1.1.Final/bin/standalone.conf
 
+#copy start script
+COPY run-with-inspectit.sh /run-with-inspectit.sh
+
 # define volume
-VOLUME /opt/agent/config
+VOLUME /opt/agent/active-config
 
 # define default command
-CMD ["/run.sh"]
+CMD ["/run-with-inspectit.sh"]
