@@ -19,6 +19,22 @@ $ docker run -d --link inspectIT-CMR:cmr -v $(pwd)/config:/opt/agent/active-conf
 
 You can now adjust the instrumentation configuration in the folder *config* for your needs. Please refer to our [documentation](https://documentation.novatec-gmbh.de/display/INSPECTIT/Agent+Configuration) or just leave a comment.
 
+##Usage
+To get the admin password of your new container, check the logs of the container by running:
+
+    docker logs <CONTAINER_ID>
+
+You should see something like the following: 
+
+    => Configuring admin user with a random password in JBoss
+    => Done!
+    ========================================================================
+    You can now configure to this JBoss server using:
+    
+        admin:yDY4ZnRXw1Gy
+    
+    ========================================================================
+
 ## Configuration
 ### Agent name
 By default, the inspectIT agent uses the hostname (docker-ID) as agent name. You can set a different name setting ```AGENT_NAME``` or hostname:
