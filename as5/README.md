@@ -48,7 +48,7 @@ $ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 -p 9990:99
 ```
 
 ### JBoss password
-If you want to use your own password for the JBoss application server, then you can set a specific password setting ```JBOSS_PASS```
+If you want to use your own password for the JBoss application server, then you can set a specific password setting ```JBOSS_PASS```:
 ```bash
 $ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 -p 9990:9990 -v $(pwd)/config:/opt/agent/active-config -e JBOSS_PASS="<jboss-password>" inspectit/jboss:5
 ```
