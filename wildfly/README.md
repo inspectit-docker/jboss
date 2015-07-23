@@ -31,12 +31,6 @@ $ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 -v $(pwd)/config:/opt/agen
 $ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 -v $(pwd)/config:/opt/agent/active-config inspectit/jboss:wildfly
 ```
 
-### JBoss password
-If you want to use your own password for the JBoss application server, then you can set a specific password setting ```JBOSS_PASS```:
-```bash
-$ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 -v $(pwd)/config:/opt/agent/active-config -e JBOSS_PASS="<jboss-password>" inspectit/jboss:wildfly
-```
-
 ### Using a custom inspectIT CMR
 If you don't want to use the inspectIT CMR docker image or cannot link to it, you can set the IP address and port manually:
 
