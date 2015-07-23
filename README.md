@@ -67,7 +67,7 @@ Currently, this image is based on the JBoss 5 image. Support for different versi
 Currently, this image is based on the latest beta inspectIT release. Later, support for other versions is added.
 
 ## Build the docker image
-If you want to build the Tomcat inspectIT image yourself, checkout this repository and run 
+If you want to build the JBoss inspectIT image yourself, checkout this repository and run 
 
 ```bash
 $ docker build -t inspectit/jboss:5 .
