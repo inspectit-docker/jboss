@@ -1,3 +1,5 @@
+[![](https://badge.imagelayers.io/inspectit/jboss:5.svg)](https://imagelayers.io/?images=inspectit/jboss:5 'Get your own badge on imagelayers.io')
+
 # JBoss with inspectIT
 JBoss Dockerfile including inspectIT
 
