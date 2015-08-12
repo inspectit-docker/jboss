@@ -1,3 +1,5 @@
+[![](https://badge.imagelayers.io/inspectit/jboss:6.svg)](https://imagelayers.io/?images=inspectit/jboss:6 'Get your own badge on imagelayers.io')
+
 # Docker-inspectIT-JBoss
 This dockerfile provides a JBoss application server including the APM solution inspectIT (www.inspectit.eu). 
 
