@@ -5,7 +5,7 @@ MAINTAINER info.inspectit@novatec-gmbh.de
 WORKDIR /opt
 
 #set insepctit env
-ENV INSPECTIT_VERSION 1.6.2.65
+ENV INSPECTIT_VERSION 1.6.3.68
 ENV INSPECTIT_AGENT_HOME /opt/agent
 ENV INSPECTIT_CONFIG_HOME /opt/agent/active-config
 
