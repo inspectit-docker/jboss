@@ -19,7 +19,7 @@ Now you can start a container with the following command:
 $ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 -p 9990:9990 -v $(pwd)/config:/opt/agent/active-config inspectit/jboss:5
 ```
 
-You can now adjust the instrumentation configuration in the folder *config* for your needs. Please refer to our [documentation](https://documentation.novatec-gmbh.de/display/INSPECTIT/Agent+Configuration) or just leave a comment.
+You can now adjust the instrumentation configuration in the folder *config* for your needs. Please refer to our [documentation](https://inspectit-performance.atlassian.net/wiki/display/DOC16/Agent+Configuration) or just leave a comment.
 
 ##Usage
 To get the admin password of your new container, check the logs of the container by running:
