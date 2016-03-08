@@ -16,7 +16,7 @@ USER jboss
 WORKDIR /opt/jboss
 
 #set insepctit env
-ENV INSPECTIT_VERSION 1.6.5.70
+ENV INSPECTIT_VERSION 1.6.6.76
 ENV INSPECTIT_AGENT_HOME /opt/jboss/agent
 ENV INSPECTIT_CONFIG_HOME /opt/jboss/agent/active-config
 ENV JBOSS_LOGMANAGER_VERSION 1.5.2.Final
@@ -24,7 +24,7 @@ ENV JBOSS_LOGMANAGER_VERSION 1.5.2.Final
 # get inspectit binary
 # set inspectit jvm options
 RUN mkdir -p ${INSPECTIT_AGENT_HOME} ${INSPECTIT_CONFIG_HOME} \
- && wget ftp://ftp.novatec-gmbh.de/inspectit/releases/RELEASE.${INSPECTIT_VERSION}/inspectit-agent-sun1.5.zip \
+ && wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-sun1.5.zip \
  && unzip inspectit-agent-sun1.5.zip \
  && rm -f inspectit-agent-sun1.5.zip \
  && sed -i '6i\'"JBOSS_MODULES_SYSTEM_PKGS=\"org.jboss.logmanager\"" /opt/jboss/wildfly/bin/standalone.conf \

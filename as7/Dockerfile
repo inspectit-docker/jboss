@@ -5,7 +5,7 @@ MAINTAINER info.inspectit@novatec-gmbh.de
 WORKDIR /opt
 
 #set insepctit env
-ENV INSPECTIT_VERSION 1.6.5.70
+ENV INSPECTIT_VERSION 1.6.6.76
 ENV INSPECTIT_AGENT_HOME /opt/agent
 ENV INSPECTIT_CONFIG_HOME /opt/agent/active-config
 
@@ -13,7 +13,7 @@ ENV INSPECTIT_CONFIG_HOME /opt/agent/active-config
 # set inspectit jvm options
 RUN apt-get update \
 && apt-get install -y unzip \
-&& wget ftp://ftp.novatec-gmbh.de/inspectit/releases/RELEASE.${INSPECTIT_VERSION}/inspectit-agent-sun1.5.zip \
+&& wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-sun1.5.zip \
 && unzip inspectit-agent-sun1.5.zip \
 && apt-get clean \
 && rm -f inspectit-agent-sun1.5.zip \
