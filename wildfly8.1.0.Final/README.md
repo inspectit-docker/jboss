@@ -16,21 +16,21 @@ $ docker run -d --name inspectIT-CMR -p 8182:8182 -p 9070:9070 inspectit/cmr
 Now you can start a container with the following command:
 
 ```bash
-$ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 -v $(pwd)/config:/opt/agent/active-config inspectit/jboss:wildfly
+$ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 inspectit/jboss:wildfly
 ```
 
-You can now adjust the instrumentation configuration in the folder *config* for your needs. Please refer to our [documentation](https://documentation.novatec-gmbh.de/display/INSPECTIT/Agent+Configuration) or just leave a comment.
+You can now adjust the instrumentation configuration with the inspectIT UI for your needs. Please refer to our [documentation](https://documentation.novatec-gmbh.de/display/INSPECTIT/Agent+Configuration) or just leave a comment.
 
 ## Configuration
 ### Agent name
 By default, the inspectIT agent uses the hostname (docker-ID) as agent name. You can set a different name setting ```AGENT_NAME``` or hostname:
 
 ```bash
-$ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 -v $(pwd)/config:/opt/agent/active-config -e AGENT_NAME=<agent-name> inspectit/jboss:wildfly
+$ docker run -d --link inspectIT-CMR:cmr -p 8080:8080 -e AGENT_NAME=<agent-name> inspectit/jboss:wildfly
 ```
 
 ```bash
-$ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 -v $(pwd)/config:/opt/agent/active-config inspectit/jboss:wildfly
+$ docker run -d --link inspectIT-CMR:cmr -h <agent-name> -p 8080:8080 inspectit/jboss:wildfly
 ```
 
 ### Using a custom inspectIT CMR
@@ -41,7 +41,7 @@ $ docker run -d -e INSPECTIT_CMR_ADDR=<cmr-ip-address> -e INSPECTIT_CMR_PORT=<cm
 ```
 
 ## Specifying the JBoss version
-Currently, this image is based on the JBoss Wildfly image. Support for different version 5, 6 and 7 is also available.
+Currently, this image is based on the JBoss Wildfly 8.1.0.Final image. Support for different version 5, 6 and 7 is also available.
 
 ## Specifying the inspectIT version
 Currently, this image is based on the latest beta inspectIT release. Later, support for other versions is added.
