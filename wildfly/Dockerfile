@@ -16,7 +16,7 @@ USER jboss
 WORKDIR /opt/jboss
 
 #set insepctit env
-ENV INSPECTIT_VERSION 1.6.7.79
+ENV INSPECTIT_VERSION 1.6.9.83
 ENV INSPECTIT_AGENT_HOME /opt/jboss/agent
 ENV INSPECTIT_CONFIG_HOME /opt/jboss/agent/active-config
 ENV JBOSS_LOGMANAGER_VERSION 1.5.2.Final
