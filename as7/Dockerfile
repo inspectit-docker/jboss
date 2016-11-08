@@ -13,9 +13,9 @@ ENV INSPECTIT_AGENT_HOME /opt/agent
 RUN apt-get update \
  && apt-get install -y unzip \
  && apt-get clean \
- && wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && unzip inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && rm -f inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
+ && wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && unzip inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && rm -f inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
  && sed -i '6i\'"JBOSS_MODULES_SYSTEM_PKGS=\"org.jboss.logmanager\"" /jboss-as-7.1.1.Final/bin/standalone.conf \
  && sed -i '$ a\'"JBOSS_HOME=\"/jboss-as-7.1.1.Final\"" /jboss-as-7.1.1.Final/bin/standalone.conf \
  && sed -i '$ a\'"JAVA_OPTS=\"\$JAVA_OPTS -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Xbootclasspath/p:\$JBOSS_HOME/modules/org/jboss/logmanager/main/jboss-logmanager-1.2.2.GA.jar -Xbootclasspath/p:\$JBOSS_HOME/modules/org/jboss/logmanager/log4j/main/jboss-logmanager-log4j-1.0.0.GA.jar -Xbootclasspath/p:\$JBOSS_HOME/modules/org/apache/log4j/main/log4j-1.2.16.jar\"" /jboss-as-7.1.1.Final/bin/standalone.conf \

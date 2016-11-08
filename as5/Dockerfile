@@ -10,9 +10,9 @@ ENV INSPECTIT_AGENT_HOME /opt/agent
 
 # get inspectit binary
 # set inspectit jvm options
-RUN wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && unzip inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && rm -f inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
+RUN wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && unzip inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && rm -f inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
  && sed -i '$ a\'"export INSPECTIT_JAVA_OPTS=\"-javaagent:${INSPECTIT_AGENT_HOME}/inspectit-agent.jar -Dinspectit.repository=_CMR_ADDRESS_:_CMR_PORT_ -Dinspectit.agent.name=_AGENT_NAME_\"" /jboss-5.1.0.GA/bin/run.conf \
  && sed -i '$ a\'"export JAVA_OPTS=\"\${INSPECTIT_JAVA_OPTS} \${JAVA_OPTS}\"" /jboss-5.1.0.GA/bin/run.conf
 

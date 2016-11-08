@@ -23,9 +23,9 @@ ENV JBOSS_LOGMANAGER_VERSION 1.5.2.Final
 # get inspectit binary
 # set inspectit jvm options
 RUN mkdir -p ${INSPECTIT_AGENT_HOME} ${INSPECTIT_CONFIG_HOME} \
- && wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && unzip inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
- && rm -f inspectit-agent-sun1.5-${INSPECTIT_VERSION}.zip \
+ && wget --no-check-certificate https://github.com/inspectIT/inspectIT/releases/download/${INSPECTIT_VERSION}/inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && unzip inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
+ && rm -f inspectit-agent-java6-${INSPECTIT_VERSION}.zip \
  && sed -i '6i\'"JBOSS_MODULES_SYSTEM_PKGS=\"org.jboss.logmanager\"" /opt/jboss/wildfly/bin/standalone.conf \
  && sed -i '$ a\'"JBOSS_HOME=\"/opt/jboss/wildfly\"" /opt/jboss/wildfly/bin/standalone.conf \
  && sed -i '$ a\'"JAVA_OPTS=\"\${JAVA_OPTS} -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Xbootclasspath/p:\${JBOSS_HOME}/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-\${JBOSS_LOGMANAGER_VERSION}.jar\"" /opt/jboss/wildfly/bin/standalone.conf \
