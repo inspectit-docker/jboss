@@ -23,7 +23,7 @@ if ([[ -n $INSPECTIT_VERSION && -n $CMR_ENV_INSPECTIT_VERSION && $INSPECTIT_VERS
 	echo "[ERROR] You have to use the same version for CMR and agent."
 	exit 1
 elif ([ -z $CMR_ENV_INSPECTIT_VERSION ]); then
-	CMR_REST_VERSION=$(wget http://$CMR_ADDR:8182/rest/cmr/version -qO-)
+	CMR_REST_VERSION=$(wget http://$CMR_ADDR:8182/rest/cmr/version -qO- | tr -d '"')
 	if ([ $? -eq 0 ]);then
 		if ([ $INSPECTIT_VERSION != $CMR_REST_VERSION ]); then
 			echo "[ERROR] Version of inspectIT CMR and agent do not match:"
